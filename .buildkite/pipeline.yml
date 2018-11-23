@@ -1,0 +1,8 @@
+steps:
+  - label: ":llama:"
+    command:
+      - ./create_artifacts.sh
+      - echo llamas rock
+    artifact_paths": "log/*.log;client-src/integration-tests/screenshots/**/*.png"
+    timeout_in_minutes: 30,
+    parallelism: 4
