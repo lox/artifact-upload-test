@@ -11,7 +11,7 @@ steps:
 
   - label: ":llama: :linux: Download"
     command:
-      - buildkite-agent artifact download "log/*.log;client-src/integration-tests/screenshots/**/*" .
+      - buildkite-agent artifact download "**/*" .
       - ls -alR .
     agents:
       queue: lox
@@ -28,7 +28,7 @@ steps:
 
   - label: ":llama: :windows: Download"
     command:
-      - buildkite-agent artifact download "log/*.log;client-src/integration-tests/screenshots/**/*" .
+      - buildkite-agent artifact download "**/*" .
       - dir
     agents:
       queue: lox-windows
