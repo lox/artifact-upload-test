@@ -3,7 +3,7 @@ steps:
     command:
       - bash create_artifacts.sh
       - echo llamas rock
-    artifact_paths: "log/*.log;client-src/integration-tests/screenshots/**/*.png"
+    artifact_paths: "log/*.log;client-src/integration-tests/screenshots/**/*"
     agents:
       queue: lox-windows
 
@@ -11,7 +11,7 @@ steps:
 
   - label: ":llama: :linux: Download"
     command:
-      - buildkite-agent artifact download "log/*.log;client-src/integration-tests/screenshots/**/*.png" .
+      - buildkite-agent artifact download "log/*.log;client-src/integration-tests/screenshots/**/*" .
       - ls -alR .
     agents:
       queue: lox
@@ -20,7 +20,7 @@ steps:
     command:
       - bash create_artifacts.sh
       - echo llamas rock
-    artifact_paths: "log/*.log;client-src/integration-tests/screenshots/**/*.png"
+    artifact_paths: "log/*.log;client-src/integration-tests/screenshots/**/*"
     agents:
       queue: lox
 
@@ -28,7 +28,7 @@ steps:
 
   - label: ":llama: :windows: Download"
     command:
-      - buildkite-agent artifact download "log/*.log;client-src/integration-tests/screenshots/**/*.png" .
+      - buildkite-agent artifact download "log/*.log;client-src/integration-tests/screenshots/**/*" .
       - dir
     agents:
       queue: lox-windows
