@@ -21,6 +21,8 @@ steps:
       - ls .
     agents:
       queue: lox
+    soft_fail:
+      - exit_status: 1
 
   - label: ":llama: :linux: Upload"
     command:
