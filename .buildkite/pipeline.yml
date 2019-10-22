@@ -1,7 +1,7 @@
 steps:
   - label: ":llama: :windows: Upload"
     command:
-      - ./create_artifacts.sh
+      - bash create_artifacts.sh
       - echo llamas rock
     artifact_paths: "log/*.log;client-src/integration-tests/screenshots/**/*.png"
     agents:
@@ -18,7 +18,7 @@ steps:
 
   - label: ":llama: :linux: Upload"
     command:
-      - ./create_artifacts.sh
+      - bash create_artifacts.sh
       - echo llamas rock
     artifact_paths: "log/*.log;client-src/integration-tests/screenshots/**/*.png"
     agents:
