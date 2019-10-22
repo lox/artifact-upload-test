@@ -8,10 +8,17 @@ steps:
 
   - wait
 
-  - label: ":llama: :linux: Download"
+  - label: ":llama: :linux: Download (windows glob)"
     command:
       - buildkite-agent artifact download "llamas\\*.jpg" .
-      - ls -alR .
+      - ls .
+    agents:
+      queue: lox
+
+  - label: ":llama: :linux: Download (linux glob)"
+    command:
+      - buildkite-agent artifact download "llamas/*.jpg" .
+      - ls .
     agents:
       queue: lox
 
