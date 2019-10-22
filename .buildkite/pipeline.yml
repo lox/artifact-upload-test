@@ -2,7 +2,7 @@ steps:
   - label: ":llama: :windows: Upload"
     command:
       - echo llamas rock
-    artifact_paths: "llamas\\*.png"
+    artifact_paths: "llamas\\*.jpg"
     agents:
       queue: lox-windows
 
@@ -10,7 +10,7 @@ steps:
 
   - label: ":llama: :linux: Download"
     command:
-      - buildkite-agent artifact download "llamas\\*.png" .
+      - buildkite-agent artifact download "llamas\\*.jpg" .
       - ls -alR .
     agents:
       queue: lox
@@ -19,7 +19,7 @@ steps:
     command:
       - bash create_artifacts.sh
       - echo llamas rock
-    artifact_paths: "llamas/*.png"
+    artifact_paths: "llamas/*.jpg"
     agents:
       queue: lox
 
@@ -27,7 +27,7 @@ steps:
 
   - label: ":llama: :windows: Download"
     command:
-      - buildkite-agent artifact download "llamas/*.png" .
+      - buildkite-agent artifact download "llamas/*.jpg" .
       - dir
     agents:
       queue: lox-windows
