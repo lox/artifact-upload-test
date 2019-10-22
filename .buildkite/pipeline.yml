@@ -1,8 +1,37 @@
 steps:
-  - label: ":llama:"
+  - label: ":llama: :windows: Upload"
     command:
       - ./create_artifacts.sh
       - echo llamas rock
     artifact_paths: "log/*.log;client-src/integration-tests/screenshots/**/*.png"
-    timeout_in_minutes: 30
-    parallelism: 4
+    agents:
+      queue: lox-windows
+
+  - wait
+
+  - label: ":llama: :linux: Download"
+    command:
+      - buildkite-agent artifact download "log/*.log;client-src/integration-tests/screenshots/**/*.png" .
+      - ls -alR .
+    agents:
+      queue: lox
+
+  - label: ":llama: :linux: Upload"
+    command:
+      - ./create_artifacts.sh
+      - echo llamas rock
+    artifact_paths: "log/*.log;client-src/integration-tests/screenshots/**/*.png"
+    agents:
+      queue: lox
+
+  - wait
+
+  - label: ":llama: :windows: Download"
+    command:
+      - buildkite-agent artifact download "log/*.log;client-src/integration-tests/screenshots/**/*.png" .
+      - dir
+    agents:
+      queue: lox-windows
+
+
+
