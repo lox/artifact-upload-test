@@ -17,7 +17,6 @@ steps:
 
   - label: ":llama: :linux: Upload"
     command:
-      - bash create_artifacts.sh
       - echo llamas rock
     artifact_paths: "llamas/*.jpg"
     agents:
